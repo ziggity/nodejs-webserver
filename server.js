@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views');
-
+const port = process.env.PORT || 3000;
 var app = express();
 app.use(express.static(__dirname + '/public'));
 
@@ -33,6 +33,6 @@ app.get('/bad', (req, res) => {
         errorMessage: 'unable tohandle request'
     });
 });
-app.listen(3000, () => {
-    console.log('server is upc')
+app.listen(port, () => {
+    console.log(`server is up @ ${port}`)
 });
